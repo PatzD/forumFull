@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Blog</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'styles.css' %}" />
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<ul class="nav-contents">
+					<li><a href="/">Home</a></li>
+					<li><a href="#" class="open-new-post">New Post</a></li>
+					<li><a href="#c" class="open-about-section">About</a></li>
+				</ul>
+			</nav>
+			<a href="/login"><button class="login">Login</button></a>
+		</header>
+
+		<article class="body">
+			{% for post in posts %}
+			<p class="blog-post">
+				{{post.title}}<br/><br/>
+				{{post.contents}}
+			</p>
+			{% endfor %}
+		</article>
+
+		<div class="post-mod hidden">
+			<button class="close-modal close-post-modal">&times;</button>
+			<form>
+				<h3>Create new post</h3>
+				<input type="text" />
+			</form>
+		</div>
+
+		<div class="about-mod hidden">
+			<button class="close-modal close-about-modal">&times;</button>
+			<h3>About me</h3>
+			<p>My contact info is ......</p>
+			<p>I like .....</p>
+		</div>
+		<script src="{% static 'scripts.js' %}"></script>
+	</body>
+</html>

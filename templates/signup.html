@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signup</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body class="login-page">
+    <header>
+        <nav>
+            <ul class="nav-contents">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">New Post</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <a href="login.html"><button>Login</button></a>
+    </header>
+
+    <div class="login-signup">
+        <label for="uname">Username:</label>
+        <input type="text" placeholder="Enter Username" name="uname" required class="signup-input"><br>
+        <label for="email">Email:</label>
+        <input type="email" placeholder="Enter Email" name="email" required class="signup-input"><br>
+        <label for="pword">Repeat Email:</label>
+        <input type="password" placeholder="Enter Password" name="pword" required class="signup-input"><br>
+        <label for="pword">Repeat Password:</label>
+        <input type="password" placeholder="Repeat Password" name="pword" required class="signup-input"><br>
+    </div>
+</body>
+
+</html>

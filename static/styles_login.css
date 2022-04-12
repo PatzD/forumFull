@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
+}
+
+li,
+a,
+button {
+	font-weight: 500;
+	font-size: 16px;
+	color: #edf0f1;
+	text-decoration: none;
+}
+
+body {
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	background-color: #292a30;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 10%;
+	background-color: #24252a;
+}
+
+div.login {
+    top: 100px;
+	margin: 60px 40%;
+	padding: 15px 50px;
+	background-color: #edf0f1;
+	border-radius: 5px;
+}
+
+.nav-contents {
+	list-style: none;
+}
+
+.nav-contents li {
+	display: inline-block;
+	padding: 0px 20px;
+}
+
+.nav-contents li a {
+	transition: all 0.3s ease 0;
+}
+
+.nav-contents li a:hover {
+	color: #0088a9;
+}
+
+button.login {
+	padding: 9px 20px;
+	background-color: rgba(0, 136, 169, 1);
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease 0;
+}
+
+button:hover {
+	background-color: rgba(0, 136, 169, 0.8);
+}
+
+.login-signup {
+	padding-top: 10%;
+	padding-left: 38%;
+	text-align: left;
+}
+
+.login-page {
+	background-color: #edf0f1;
+}
+
+.signup-link {
+	color: #01627a;
+}
+
+.signup-input {
+	display: inline-block;
+	text-align: center;
+}
