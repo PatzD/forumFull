@@ -25,16 +25,16 @@
         <a href="login.html"><button>Login</button></a>
     </header>
 
-    <div class="login-signup">
-        <label for="uname">Username:</label>
-        <input type="text" placeholder="Enter Username" name="uname" required class="signup-input"><br>
-        <label for="email">Email:</label>
-        <input type="email" placeholder="Enter Email" name="email" required class="signup-input"><br>
-        <label for="pword">Repeat Email:</label>
-        <input type="password" placeholder="Enter Password" name="pword" required class="signup-input"><br>
-        <label for="pword">Repeat Password:</label>
-        <input type="password" placeholder="Repeat Password" name="pword" required class="signup-input"><br>
-    </div>
+    <form class="login-signup" method="POST">
+        {% csrf_token %}
+        {% for field in form%}
+            {{field.label}}
+            {{field}}
+            <br>
+        {% endfor %}
+        <input type="submit" name = "create user">
+        <p>Already have a account? <a href="/login/" class="signup-link">Sign in</a></p>
+    </form>
 </body>
 
 </html>

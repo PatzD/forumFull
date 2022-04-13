@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'styles_login.css' %}">
 </head>
 
-<body>
+<body class="login-page">
     <header>
         <nav>
             <ul class="nav-contents">
@@ -21,13 +21,18 @@
         </nav>
     </header>
 
-    <div class="login">
+    
+
+    <form class="login-signup">
+        {% for message in messages%}
+            <p>{{message}}</p>
+        {% endfor%}
         <label for="uname">Username:</label>
         <input type="text" placeholder="Enter Username" name="uname" required><br>
         <label for="pword">Password:</label>
         <input type="password" placeholder="Enter Password" name="pword" required>
         <p>Don't have an account? <a href="/signup/" class="signup-link"><b>Create a new one</b></a></p>
-    </div>
+    </form>
     <script src="{% static 'scripts.js' %}"></script>
 </body>
 
