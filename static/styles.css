@@ -23,6 +23,20 @@
 	font-family: "Montserrat", sans-serif;
 }
 
+#index-nouser-post {
+	color: black;
+	text-align: center;
+}
+
+h2#index-nouser-post a {
+	color: #01627a;
+	font-size: 28px;
+}
+
+ul.errorlist li {
+	color: red;
+}
+
 li,
 a,
 button {

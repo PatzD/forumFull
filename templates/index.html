@@ -20,25 +20,35 @@
 					<li><a href="#c" class="open-about-section">About</a></li>
 				</ul>
 			</nav>
-			<a href="/login"><button class="login">Login</button></a>
+			{% if user.is_authenticated %}
+			<a href="{% url 'logout' %}"><button class="login">Logout</button></a>
+			{% else %}
+			<a href="{% url 'login' %}"><button class="login">Login</button></a>
+			{% endif %}
 		</header>
 
 		<article class="body">
 			{% for post in posts %}
 			<p class="blog-post">
-				{{post.title}}<br/><br/>
+				{{post.title}}<br /><br />
 				{{post.contents}}
 			</p>
 			{% endfor %}
 		</article>
 
-		<div class="post-mod hidden">
+		<form class="post-mod hidden">
+			{% csrf_token %}
 			<button class="close-modal close-post-modal">&times;</button>
-			<form>
+			<form method="POST">
+				{% if user.is_authenticated %}
 				<h3>Create new post</h3>
-				<input type="text" />
+				<input type="text" name="post-content" />
+				<input type="submit" name="submit-post" />
+				{% else %}
+				<h2 id="index-nouser-post">To create a new post, <a href="{% url 'login' %}">login</a></h2>
+				{% endif %}
 			</form>
-		</div>
+		</form>
 
 		<div class="about-mod hidden">
 			<button class="close-modal close-about-modal">&times;</button>

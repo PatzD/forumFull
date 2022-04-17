@@ -2,39 +2,36 @@
 
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Signup</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'styles.css' %}" />
+	</head>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Signup</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
+	<body class="login-page">
+		<header>
+			<nav>
+				<ul class="nav-contents">
+					<li><a href="{% url 'home' %}">Home</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+			</nav>
+		</header>
 
-<body class="login-page">
-    <header>
-        <nav>
-            <ul class="nav-contents">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">New Post</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-        <a href="login.html"><button>Login</button></a>
-    </header>
-
-    <form class="login-signup" method="POST">
-        {% csrf_token %}
-        {% for field in form%}
-            {{field.label}}
-            {{field}}
-            <br>
-        {% endfor %}
-        <input type="submit" name = "create user">
-        <p>Already have a account? <a href="/login/" class="signup-link">Sign in</a></p>
-    </form>
-</body>
-
+		<form class="login-signup" method="POST">
+			{% csrf_token %} {% for field in form%} {{field.label}} {{field}}
+			<br />
+			{% endfor %}
+			<input type="submit" name="create user" />
+			<p>
+				Already have a account?
+				<a href="{% url 'login' %}" class="signup-link">Sign in</a>
+			</p>
+			<br /><br />
+			<div>{{form.errors}}</div>
+		</form>
+	</body>
 </html>

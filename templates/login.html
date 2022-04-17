@@ -2,38 +2,42 @@
 
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Login</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'styles_login.css' %}" />
+	</head>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'styles_login.css' %}">
-</head>
+	<body class="login-page">
+		<header>
+			<nav>
+				<ul class="nav-contents">
+					<li><a href="{% url 'home' %}">Home</a></li>
+				</ul>
+			</nav>
+		</header>
 
-<body class="login-page">
-    <header>
-        <nav>
-            <ul class="nav-contents">
-                <li><a href="/">Home</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    
-
-    <form class="login-signup">
-        {% for message in messages%}
-            <p>{{message}}</p>
-        {% endfor%}
-        <label for="uname">Username:</label>
-        <input type="text" placeholder="Enter Username" name="uname" required><br>
-        <label for="pword">Password:</label>
-        <input type="password" placeholder="Enter Password" name="pword" required>
-        <p>Don't have an account? <a href="/signup/" class="signup-link"><b>Create a new one</b></a></p>
-    </form>
-    <script src="{% static 'scripts.js' %}"></script>
-</body>
-
+		<div class="login-signup">
+			{% for message in messages%}
+			<p>{{message}}</p>
+			{% endfor%}
+			<br />
+			<form method="POST">
+				{% csrf_token %}
+				<label for="username">Username:</label>
+				<input type="text" placeholder="Enter Username" name="username" required /><br />
+				<label for="password">Password:</label>
+				<input type="password" placeholder="Enter Password" name="password" required />
+				<input type="submit" name="login user" />
+				<p>
+					Don't have an account?
+					<a href="{% url 'signup' %}" class="signup-link"><b>Create a new one</b></a>
+				</p>
+			</form>
+		</div>
+		<script src="{% static 'scripts.js' %}"></script>
+	</body>
 </html>
