@@ -7,10 +7,25 @@ from .models import Post
 from .forms import CreateUserForm
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-id')
     context = {
         'posts': posts,
     }
+
+    if request.method == 'POST':
+        contents = request.POST.get('post-content')
+        title = request.POST.get('title')
+        poster = request.user.username
+
+        new_post = Post()
+
+        new_post.contents = contents
+        new_post.title = title
+        new_post.poster = poster
+        new_post.save()
+
+        return redirect('home')
+
     return render(request, 'index.html', context)
 
 def login_page(request):

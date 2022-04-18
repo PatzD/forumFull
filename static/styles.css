@@ -52,7 +52,7 @@ body {
 	background-color: #292a30;
 }
 
-p.blog-post {
+div.blog-post {
 	margin: 40px 600px;
 	padding: 10px 10px;
 	background-color: #edf0f1;
@@ -163,4 +163,8 @@ div.modal form input {
 
 .body {
 	text-align: left;
+}
+
+p.date {
+	font-size: 13px;
 }

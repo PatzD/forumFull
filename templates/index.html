@@ -29,26 +29,28 @@
 
 		<article class="body">
 			{% for post in posts %}
-			<p class="blog-post">
-				{{post.title}}<br /><br />
-				{{post.contents}}
-			</p>
+			<div class="blog-post">
+				<p>{{post.title}} - {{post.poster}}</p>
+				<p class="date">{{post.pub_date}}</p>
+				<br />
+				<p>{{post.contents}}</p>
+			</div>
 			{% endfor %}
 		</article>
 
-		<form class="post-mod hidden">
-			{% csrf_token %}
+		<div class="post-mod hidden">
 			<button class="close-modal close-post-modal">&times;</button>
 			<form method="POST">
-				{% if user.is_authenticated %}
+				{% csrf_token %} {% if user.is_authenticated %}
 				<h3>Create new post</h3>
+				<input type="text" placeholder="Title" name="title" />
 				<input type="text" name="post-content" />
 				<input type="submit" name="submit-post" />
 				{% else %}
 				<h2 id="index-nouser-post">To create a new post, <a href="{% url 'login' %}">login</a></h2>
 				{% endif %}
 			</form>
-		</form>
+		</div>
 
 		<div class="about-mod hidden">
 			<button class="close-modal close-about-modal">&times;</button>
