@@ -19,6 +19,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', include('blog.urls')),
+    #path('post/<int:post_id>/', post_page, name='post'),
     path('admin/', admin.site.urls),
 ]
 

@@ -65,7 +65,20 @@ def signup_page(request):
                 user = form.cleaned_data.get('username')
     
                 messages.success(request, 'Account successfully created for '+user)
-                return redirect("login")
+                return redirect('login')
 
         context = {'form': form}
         return render(request, 'signup.html', context)
+
+def post_page(request, post_id):
+    post = Post.objects.get(id=post_id)
+    context = {'post': post}
+
+    return render(request, 'post.html', context)
+
+def delete_post(request, id):
+    Post.objects.get(id=id).delete()
+    return redirect('home')
+
+def edit_post(request):
+    pass

@@ -30,7 +30,7 @@
 		<article class="body">
 			{% for post in posts %}
 			<div class="blog-post">
-				<p>{{post.title}} - {{post.poster}}</p>
+				<a href="post/{{post.id}}" class="link">{{post.title}} - {{post.poster}}</a>
 				<p class="date">{{post.pub_date}}</p>
 				<br />
 				<p>{{post.contents}}</p>

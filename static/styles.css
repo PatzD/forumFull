@@ -168,3 +168,11 @@ div.modal form input {
 p.date {
 	font-size: 13px;
 }
+
+.link {
+	color: #24252a;
+}
+
+.link:hover {
+	color: #0088a9;
+}

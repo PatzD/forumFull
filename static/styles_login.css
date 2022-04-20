@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
 
-
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -33,7 +32,7 @@ header {
 }
 
 div.login {
-    top: 100px;
+	top: 100px;
 	margin: 60px 40%;
 	padding: 15px 50px;
 	background-color: #edf0f1;
@@ -87,4 +86,12 @@ button:hover {
 .signup-input {
 	display: inline-block;
 	text-align: center;
+}
+
+.link {
+	color: #24252a;
+}
+
+.link:hover {
+	color: #0088a9;
 }

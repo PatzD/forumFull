@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Login</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'styles_login.css' %}" />
+	</head>
+
+	<body class="login-page">
+		<header>
+			<nav>
+				<ul class="nav-contents">
+					<li><a href="{% url 'home' %}">Home</a></li>
+				</ul>
+			</nav>
+		</header>
+		<br /><br /><br /><br />
+		<article class="body">
+			<div class="blog-post">
+				<p>{{post.title}} - {{post.poster}}</p>
+				<p class="date">{{post.pub_date}}</p>
+				<br />
+				<p>{{post.contents}}</p>
+			</div>
+			{% if user.username == post.poster %}
+			<a href="#" class="link">Edit Post </a><a href="{% url 'delete' post.id %}" class="link">Delete Post</a>
+			{% endif %}
+		</article>
+		<script src="{% static 'scripts.js' %}"></script>
+	</body>
+</html>
