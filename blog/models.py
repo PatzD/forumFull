@@ -1,3 +1,4 @@
+from importlib.resources import contents
 from django.db import models
 
 class Post(models.Model):
@@ -8,3 +9,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(Post):
+    post_id = models.IntegerField()

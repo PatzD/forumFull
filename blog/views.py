@@ -76,9 +76,28 @@ def post_page(request, post_id):
 
     return render(request, 'post.html', context)
 
-def delete_post(request, id):
-    Post.objects.get(id=id).delete()
+def delete_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.user.username == post.poster:
+        post.delete()
+
     return redirect('home')
 
-def edit_post(request):
-    pass
+def edit_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+
+    if request.user.username == post.poster:
+        if request.method == 'POST':
+            new_title = request.POST.get('title')
+            new_contents = request.POST.get('content')
+
+            post.title = new_title
+            post.contents = new_contents
+            post.save()
+
+            return redirect('home')
+    else:
+        return redirect('home')
+
+    context = {'post': post}
+    return render(request, 'edit.html', context)

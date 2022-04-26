@@ -28,8 +28,18 @@
 				<p>{{post.contents}}</p>
 			</div>
 			{% if user.username == post.poster %}
-			<a href="#" class="link">Edit Post </a><a href="{% url 'delete' post.id %}" class="link">Delete Post</a>
+			<a href="{% url 'edit' post.id %}" class="link">Edit Post </a><a href="{% url 'delete' post.id %}" class="link">Delete Post</a>
 			{% endif %}
+		</article>
+
+		<form method="POST" class="comment">
+			<input type="text" placeholder="comment_title" name="title" />
+			<input type="text" placeholder="comment_text" name="comment" />
+			<input type="submit" />
+		</form>
+
+		<article>
+			<p>comment contents</p>
 		</article>
 		<script src="{% static 'scripts.js' %}"></script>
 	</body>

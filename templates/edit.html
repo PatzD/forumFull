@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Login</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'styles_login.css' %}" />
+	</head>
+
+	<body class="login-page">
+		<header>
+			<nav>
+				<ul class="nav-contents">
+					<li><a href="{% url 'home' %}">Home</a></li>
+				</ul>
+			</nav>
+		</header>
+		<br /><br /><br /><br />
+		<form class="body" method="POST">
+			{% csrf_token %}
+			<input type="text" name="title" value="{{post.title}}" /><br />
+			<input type="text" name="content" value="{{post.contents}}" /><br />
+			<input type="submit" />
+		</form>
+		<script src="{% static 'scripts.js' %}"></script>
+	</body>
+</html>
